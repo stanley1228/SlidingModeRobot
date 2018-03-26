@@ -1,4 +1,4 @@
-function [sys,x0,str,ts,simStateCompliance] = Traject_Script_Sfun(t,x,u,flag)
+function [sys,x0,str,ts,simStateCompliance] = SewingAction_Script_Sfun(t,x,u,flag)
 %SFUNTMPL General MATLAB S-Function Template
 %   With MATLAB S-functions, you can define you own ordinary differential
 %   equations (ODEs), discrete system equations, and/or just about
@@ -167,8 +167,8 @@ sizes = simsizes;
 
 sizes.NumContStates  = 0;
 sizes.NumDiscStates  = 0;
-sizes.NumOutputs     = 7;
-sizes.NumInputs      = 1;
+sizes.NumOutputs     = 14;
+sizes.NumInputs      = 14;
 sizes.DirFeedthrough = 1;
 sizes.NumSampleTimes = 1;   % at least one sample time is needed
 
@@ -231,65 +231,22 @@ sys = [];
 %
 function sys=mdlOutputs(t,x,u)
 
-    %===================
-    %get simulation time 
-    %===================
-    current_system = get_param(0, 'CurrentSystem');
-    parent_system = get_param(current_system, 'Parent'); 
-    stop_time_as_str = get_param(current_system, 'StopTime');
-    stop_time = str2double(stop_time_as_str);
-    CostTime=stop_time;
-
-    %===================
-    %line move parameter
-    %===================
-    global Needle_RobotF;%針點在手臂坐標系位置   
-    global SewingLength;%縫紉行程
-    global TranFrameToRobot;
-    %global PathPlanPointRec_R;
-    global Pcnt;
-    
-    % Trajectory_Script
-    R_starP=[[-90 -90 0] [50  0 0] -50]; 
-    R_endP=[[-90+SewingLength -90 0]  50 0 0 -50]; 
-    
-%     Needle_RobotF=[350 -300 30];%針點在手臂坐標系位置   
-%     Needle_ini_Plate=[30 -30 0];%下針點在架子plate座標系上的初始點
-%     TranFrameToRobot=Needle_RobotF-Needle_ini_Plate;%利用兩個的差值去做比較
-    R_starP(1,1:3)=R_starP(1,1:3)+TranFrameToRobot;
-    R_endP(1,1:3)=R_endP(1,1:3)+TranFrameToRobot;
-
-    
-     %not static point
-%       PathPlanPoint_R=R_starP+[40*sin(0.5*t)+10 40 40*cos(0.5*t)+10 0 0 0 0];
-
-    
-     %not static point
-%      if t<0.25*CostTime
-%          PathPlanPoint_R=R_starP+[-40 40 50 0 0 0 0];
-%     elseif t<0.5*CostTime
-%         PathPlanPoint_R=R_starP+[40 80 50 0 0 0 0];
-%     elseif t<0.75*CostTime
-%           PathPlanPoint_R=R_starP+[40 80 50 0 0 0 0];
-%     else
-%           PathPlanPoint_R=R_starP+[20 60 80 0 0 0 0];
-%     end 
-
-  
-    %static point
-    if t<0.25*CostTime
-         PathPlanPoint_R=R_starP+[-40 40 50 0 0 0 0];
-    elseif t<0.5*CostTime
-        PathPlanPoint_R=R_starP+[-40 40 50 0 0 0 0];
-    elseif t<0.75*CostTime
-          PathPlanPoint_R=R_starP+[-40 40 50 0 0 0 0];
-    else
-          PathPlanPoint_R=R_starP+[-40 40 50 0 0 0 0];
-    end 
-    
-    %PathPlanPointRec_R(Pcnt,1:7)=PathPlanPoint_R(1:7);
-  
-sys = PathPlanPoint_R;
+%     %===================
+%     %get simulation time 
+%     %===================
+%     current_system = get_param(0, 'CurrentSystem');
+%     parent_system = get_param(current_system, 'Parent'); 
+%     stop_time_as_str = get_param(current_system, 'StopTime');
+%     stop_time = str2double(stop_time_as_str);
+%     SimulateCostTime=stop_time;
+   if t>15.73
+       a=10;
+    end
+    PathPlanPoint_R=u(1:7)';
+    PathPlanPoint_L=u(8:14)';
+   
+   
+sys = [PathPlanPoint_R,PathPlanPoint_L];
 
 % end mdlOutputs
 

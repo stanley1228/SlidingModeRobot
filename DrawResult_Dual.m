@@ -41,7 +41,7 @@ for i=DEF_alpha:1:DEF_rednt_alpha
     xlabel('t');
    
     grid on;
-    legend('reference','simulated');
+    legend('reference');
     
     if i==DEF_alpha
         title('t versus alpha of right arm'); 
@@ -91,7 +91,7 @@ for i=DEF_alpha:1:DEF_rednt_alpha
     xlabel('t');
    
     grid on;
-    legend('reference','simulated');
+    legend('reference');
     
     if i==DEF_alpha
         title('t versus alpha of left arm'); 

@@ -26,8 +26,8 @@ rL=sqrt((L_starP(1)-arc_cen(1))^2+(L_starP(2)-arc_cen(2))^2);
 ini_rad_L=atan((L_starP(2)-arc_cen(2))/(L_starP(1)-arc_cen(1)));
 
 %parabolic parameter
-acc_deg_L=60; %cartesian space旋轉的角度的角速度
-acc_deg_R=60;
+acc_deg_L=50; %cartesian space旋轉的角度的角速度
+acc_deg_R=50;
 DEF_ACC_L=[acc_deg_L*(pi/180) acc_deg_L*(pi/180) acc_deg_L*(pi/180) 100 100 100 100]; %item x,y,z use the same compenet to interpolate unit is rad/s^2   the rest of item's unit is len/s^2
 DEF_ACC_R=[acc_deg_R*(pi/180) acc_deg_R*(pi/180) acc_deg_R*(pi/180) 100 100 100 100]; %
 

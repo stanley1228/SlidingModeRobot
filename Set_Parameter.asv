@@ -10,7 +10,7 @@ clc
 % R = 4;
 % L = 2.75e-6;
 
-J = [0.016,0.016,0.012,0.012,0.01,0.01,0.01];%moment of inertia of the motor
+J = [0.015,0.015,0.012,0.012,0.01,0.01,0.01];%moment of inertia of the motor
 %J = [0.01,0.01,0.01,0.01,0.01,0.01,0.01];%ok
 b = 0.1; %motor viscous friction constant
 K = 0.01;%ke electromotive force constant   %kt motor torque constant  
@@ -19,12 +19,9 @@ L = 0.5; %electric inductance
 %command=[10,12,14,16,18,20,22];
 
 P=[40,40,30,20,20,20,20,20];
-I=[5,5,5,5,5,5,5,5];
-D=[30,30,20,20,20,20,20,20];
+D=[30,20,20,20,20,20,20,20];
 
-TOP_P=5;
-TOP_I=1;
-TOP_D=0.9;
+
 % P=[20,20,20,20,20,20,20,20];%ok
 % D=[20,20,20,20,20,20,20,20];%ok
 %==============

@@ -5,8 +5,8 @@ if (Coordinate == DEF_OBJFRAME_COOR)
     R_endP(1,1:3)=R_endP(1,1:3)+TranFrameToRobot;
 end
 
-DEF_ACC_L=[100 100 100 100 100 100 100]; %len/s^2
-DEF_ACC_R=[100 100 100 100 100 100 100];
+DEF_ACC_L=[50 50 50 50 50 50 50]; %len/s^2
+DEF_ACC_R=[50 50 50 50 50 50 50];
 
 for i=1:1:7
     acc_L_min(i)=4*(L_endP(i)-L_starP(i))/(CostTime^2);
@@ -15,8 +15,15 @@ for i=1:1:7
         error('L cost time too short');
     end 
 
-    tb_L(i)=(DEF_ACC_L(i)*CostTime-sqrt(DEF_ACC_L(i)^2*CostTime^2-4*DEF_ACC_L(i)*(L_endP(i)-L_starP(i))))/(2*DEF_ACC_L(i));
-    
+    tb_L(i)=(DEF_ACC_L(i)*CostTime-sqrt(DEF_ACC_L(i)^2*CostTime^2-4*DEF_ACC_L(i)*abs(L_endP(i)-L_starP(i))))/(2*DEF_ACC_L(i));
+   
+    if (L_endP(i)-L_starP(i)) < 0
+        DEF_ACC_L(i)=-DEF_ACC_L(i);
+    end
+
+    if tb_L(i) < 0
+        error('tb_L < 0');
+    end 
     
     acc_R_min(i)=4*(R_endP(i)-R_starP(i))/(CostTime^2);
     
@@ -24,7 +31,15 @@ for i=1:1:7
         error('R cost time too short');
     end 
     
-    tb_R(i)=(DEF_ACC_R(i)*CostTime-sqrt(DEF_ACC_R(i)^2*CostTime^2-4*DEF_ACC_R(i)*(R_endP(i)-R_starP(i))))/(2*DEF_ACC_R(i));    
+    tb_R(i)=(DEF_ACC_R(i)*CostTime-sqrt(DEF_ACC_R(i)^2*CostTime^2-4*DEF_ACC_R(i)*abs(R_endP(i)-R_starP(i))))/(2*DEF_ACC_R(i));
+    
+    if (R_endP(i)-R_starP(i)) < 0
+         DEF_ACC_R(i)=-DEF_ACC_R(i);
+    end
+    
+    if tb_R(i) < 0
+        error('tb_R < 0');
+    end 
 end
 
  for t=DEF_CYCLE_TIME:DEF_CYCLE_TIME:CostTime

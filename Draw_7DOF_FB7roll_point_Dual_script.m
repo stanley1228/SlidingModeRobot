@@ -26,12 +26,12 @@
 %Path測試用 L0=255; L1=250; L2=250; L3=150;
 % AZ=-50;
 % EL=40;
-figure(4);
 
-AZ=-45;
-EL=45;
- 
-view(AZ,EL);
+% view(AZ,EL);
+
+
+figure(9);
+
 
 xlabel('x');
 ylabel('y');
@@ -41,7 +41,7 @@ grid on;    box on; rotate3d on ;
 max_cnt=TotalTime/DEF_CYCLE_TIME;
 
 for cnt=1:10:max_cnt
-    figure(4)
+    figure(9)
    
     hold off; 
        %% ========畫原點======== %%
@@ -162,6 +162,12 @@ for cnt=1:10:max_cnt
     ylim([-600 500]) % 改變 Y 軸範圍 
     zlim([-400 200]) % 改變 Z 軸範圍 
 
+
+    AZ=-45;
+    EL=45;
+
+    view(AZ,EL);
+    
     pause(0.001);
 end
 

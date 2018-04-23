@@ -4,11 +4,11 @@ clc
 %==============
 %Motor parameter
 %==============
-% J = 3.2284e-6;
-% b = 3.5077e-6;
-% K = 0.0274;
-% R = 4;
-% L = 2.75e-6;
+% J = 0.01 kg.m^2;
+% b = 0.1 N.m.s; motor viscous friction constant 
+% K = 0.01; electromotive force constant(ke)  0.01 V/rad/sec  motor torque constant(kt) 0.01 N.m/Amp
+% R = 1;electric resistance  Ohm
+% L = 0.5; electric inductance 
 
 J = [0.016,0.016,0.012,0.012,0.01,0.01,0.01];%moment of inertia of the motor
 %J = [0.01,0.01,0.01,0.01,0.01,0.01,0.01];%ok

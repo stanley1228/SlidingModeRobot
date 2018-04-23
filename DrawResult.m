@@ -13,7 +13,7 @@ xlabel('t');
 ylabel('x (mm)');
 grid on;
 title('t versus x') ; 
-legend('reference','actual');
+legend('reference','simulated');
 
 subplot(3,1,2),plot(PathPlanPointRec_R.time,PathPlanPointRec_R.data(:,DEF_Y),'--r','LineWidth',2); 
 hold on;
@@ -22,7 +22,7 @@ xlabel('t');
 ylabel('y (mm)');
 grid on;
 title('t versus y') ; 
-legend('reference','actual');
+legend('reference','simulated');
 
 subplot(3,1,3),plot(PathPlanPointRec_R.time,PathPlanPointRec_R.data(:,DEF_Z),'--r','LineWidth',2); 
 hold on;
@@ -31,7 +31,7 @@ xlabel('t');
 ylabel('z (mm)');
 grid on;
 title('t versus z') ; 
-legend('reference','actual');
+legend('reference','simulated');
 
 %% ========motor output  ========%%
 figure(2)

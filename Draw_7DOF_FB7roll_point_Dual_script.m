@@ -104,13 +104,11 @@ for cnt=1:10:max_cnt
     %%  ========畫經過IK FK運算後路徑上的點======== %%
     %Right Arm
     plot3(PathIFKPointRec_R.data(1:10:cnt,1),PathIFKPointRec_R.data(1:10:cnt,2),PathIFKPointRec_R.data(1:10:cnt,3),'mo','MarkerSize',2,'Linewidth',1);%1:10:cnt make the interval more
-    %plot3(PathPlanPointRec_R.data(1:cnt,1),PathPlanPointRec_R.data(1:cnt,2),PathPlanPointRec_R.data(1:cnt,3),'b--','MarkerSize',2,'Linewidth',2);
-
-
+    plot3(PathPlanPointRec_R.data(1:cnt,1),PathPlanPointRec_R.data(1:cnt,2),PathPlanPointRec_R.data(1:cnt,3),'b--','MarkerSize',2,'Linewidth',2);
 
     %Left Arm
     plot3(PathIFKPointRec_L.data(1:10:cnt,1),PathIFKPointRec_L.data(1:10:cnt,2),PathIFKPointRec_L.data(1:10:cnt,3),'mo','MarkerSize',2,'Linewidth',1);%real
-    %plot3(PathPlanPointRec_L.data(1:cnt,1),PathPlanPointRec_L.data(1:cnt,2),PathPlanPointRec_L.data(1:cnt,3),'b--','MarkerSize',2,'Linewidth',2);%reference
+    plot3(PathPlanPointRec_L.data(1:cnt,1),PathPlanPointRec_L.data(1:cnt,2),PathPlanPointRec_L.data(1:cnt,3),'b--','MarkerSize',2,'Linewidth',2);%reference
 
 
     %% ========End effector======== %%
@@ -146,11 +144,11 @@ for cnt=1:10:max_cnt
     r=0;
 
     %% ========縫紉使用  ========%%
-    plot3(Needle_RobotF(1),Needle_RobotF(2),Needle_RobotF(3),'bx','MarkerSize',2,'Linewidth',4);
-
-    ObjCorner=reshape(getdatasamples(ObjCornerRec_raw,cnt),[4,3]);
-    ObjCorner=[ObjCorner;ObjCorner(1,1:3)];%for last point link to first point
-    plot3(ObjCorner(:,1),ObjCorner(:,2),ObjCorner(:,3),':c','LineWidth',2);
+%     plot3(Needle_RobotF(1),Needle_RobotF(2),Needle_RobotF(3),'bx','MarkerSize',2,'Linewidth',4);
+% 
+%     ObjCorner=reshape(getdatasamples(ObjCornerRec_raw,cnt),[4,3]);
+%     ObjCorner=[ObjCorner;ObjCorner(1,1:3)];%for last point link to first point
+%     plot3(ObjCorner(:,1),ObjCorner(:,2),ObjCorner(:,3),':c','LineWidth',2);
 
     
     xlabel('x');

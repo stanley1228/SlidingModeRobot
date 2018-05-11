@@ -107,6 +107,32 @@ for i=DEF_alpha:1:DEF_rednt_alpha
         ylabel('theta');    
     end
 end
+
+%% ========motor reference input  ========%%
+%right hand
+figure;
+for i=1:7
+    plot(IK_out_R.time,IK_out_R.Data(:,i),'LineWidth',2);
+    hold on;
+end
+legend('axis1','axis2','axis3','axis4','axis5','axis6','axis7');
+xlabel('t');
+ylabel('angle');
+grid on;
+title('IK out angle for each axis of right arm') ; 
+
+%left hand
+figure;
+for i=1:7
+    plot(IK_out_L.time,IK_out_L.Data(:,i),'LineWidth',2);
+    hold on;
+end
+legend('axis1','axis2','axis3','axis4','axis5','axis6','axis7');
+xlabel('t');
+ylabel('angle');
+grid on;
+title('IK out angle for each axis of left arm') ; 
+
 %% ========motor output  ========%%
 %right hand
 figure;
@@ -132,7 +158,32 @@ ylabel('angle');
 grid on;
 title('angle for each axis of left arm') ; 
 
-%% ========error ========%%
+%% ========error in joint space  ========%%
+%right hand
+figure;
+for i=1:7
+    plot(err_joint_R.time,err_joint_R.Data(:,i),'LineWidth',2);
+    hold on;
+end
+legend('axis1','axis2','axis3','axis4','axis5','axis6','axis7');
+xlabel('t');
+ylabel('angle');
+grid on;
+title('error in joint space of right arm') ; 
+
+%left hand
+figure;
+for i=1:7
+    plot(err_joint_L.time,err_joint_L.Data(:,i),'LineWidth',2);
+    hold on;
+end
+legend('axis1','axis2','axis3','axis4','axis5','axis6','axis7');
+xlabel('t');
+ylabel('angle');
+grid on;
+title('error in joint space of left arm') ; 
+
+%% ========error error in Cartesian space ========%%
 %right hand
 figure;
 for i=1:3

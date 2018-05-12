@@ -127,7 +127,12 @@ function sys=mdlOutputs(t,x,u)
     Rednt_alpha_R=PathPlanPoint_R(7)*pi/180;
     theta_R=IK_7DOF_FB7roll(DEF_RIGHT_HAND,in_linkL,in_base,in_end,in_PoseAngle,Rednt_alpha_R);
     
-    
+    %AngleConstrain
+    bover=AngleOverConstrain(DEF_RIGHT_HAND,theta_R);
+    if bover == true
+        error('OverConstrain');
+    end    
+
 sys = theta_R;
 
 

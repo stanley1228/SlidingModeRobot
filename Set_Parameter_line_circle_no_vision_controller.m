@@ -136,7 +136,7 @@ ObjCornerRec_raw=timeseries;
 %右手畫直線
 FRAME_UPDATE=true;%架子繪圖
 R_starP=[[210 -360 0] [50 0 0] -50]; 
-R_endP=[[350 -360 0]  [50 0 0] -50]; 
+R_endP=[[450 -360 0]  [50 0 0] -50]; 
 arm_sel = DEF_RIGHT_HAND;
 CostTime=12;
 Coordinate=DEF_ROBOT_COOR;

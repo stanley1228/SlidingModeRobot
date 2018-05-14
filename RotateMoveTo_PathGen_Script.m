@@ -102,7 +102,7 @@ for t=DEF_CYCLE_TIME:DEF_CYCLE_TIME:CostTime
             else
                 current_rad_L=(ini_rad_L+rot_rad)-0.5*DEF_ACC_L(i)*(CostTime-t)^2;
             end
-            i=3;% 1~3 calculate the same thing current_rad_R
+%             i=3;% 1~3 calculate the same thing current_rad_R
         else
             if (L_starP(i) == L_endP(i))
                 PathPlanPoint_L(i)=L_endP(i);

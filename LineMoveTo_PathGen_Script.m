@@ -5,8 +5,8 @@ if (Coordinate == DEF_OBJFRAME_COOR)
     R_endP(1,1:3)=R_endP(1,1:3)+TranFrameToRobot;
 end
 
-DEF_ACC_L=[50 50 50 50 50 50 50]; %len/s^2
-DEF_ACC_R=[50 50 50 50 50 50 50];
+DEF_ACC_L=[100 100 100 100 100 100 100]; %len/s^2
+DEF_ACC_R=[100 100 100 100 100 100 100];
 
 for i=1:1:7
     acc_L_min(i)=4*(L_endP(i)-L_starP(i))/(CostTime^2);

@@ -144,11 +144,11 @@ for cnt=1:10:max_cnt
     r=0;
 
     %% ========Á_¬÷¨Ï¥Î  ========%%
-%     plot3(Needle_RobotF(1),Needle_RobotF(2),Needle_RobotF(3),'bx','MarkerSize',2,'Linewidth',4);
-% 
-%     ObjCorner=reshape(getdatasamples(ObjCornerRec_raw,cnt),[4,3]);
-%     ObjCorner=[ObjCorner;ObjCorner(1,1:3)];%for last point link to first point
-%     plot3(ObjCorner(:,1),ObjCorner(:,2),ObjCorner(:,3),':c','LineWidth',2);
+    plot3(Needle_RobotF(1),Needle_RobotF(2),Needle_RobotF(3),'bx','MarkerSize',2,'Linewidth',4);
+
+    ObjCorner=reshape(getdatasamples(ObjCornerRec_raw,cnt),[4,3]);
+    ObjCorner=[ObjCorner;ObjCorner(1,1:3)];%for last point link to first point
+    plot3(ObjCorner(:,1),ObjCorner(:,2),ObjCorner(:,3),':c','LineWidth',2);
 
     
     xlabel('x');

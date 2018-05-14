@@ -17,7 +17,7 @@ for i=1:1:7
 
     tb_L(i)=(DEF_ACC_L(i)*CostTime-sqrt(DEF_ACC_L(i)^2*CostTime^2-4*DEF_ACC_L(i)*abs(L_endP(i)-L_starP(i))))/(2*DEF_ACC_L(i));
    
-    if (L_endP(i)-L_starP(i)) < 0
+    if (L_endP(i)-L_starP(i)) < 0  %for different direction acc
         DEF_ACC_L(i)=-DEF_ACC_L(i);
     end
 
@@ -33,7 +33,7 @@ for i=1:1:7
     
     tb_R(i)=(DEF_ACC_R(i)*CostTime-sqrt(DEF_ACC_R(i)^2*CostTime^2-4*DEF_ACC_R(i)*abs(R_endP(i)-R_starP(i))))/(2*DEF_ACC_R(i));
     
-    if (R_endP(i)-R_starP(i)) < 0
+    if (R_endP(i)-R_starP(i)) < 0  
          DEF_ACC_R(i)=-DEF_ACC_R(i);
     end
     

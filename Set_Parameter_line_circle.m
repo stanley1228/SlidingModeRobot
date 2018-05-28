@@ -73,7 +73,7 @@ L3=25;    %L型 短邊
 L4=230;   %L型 長邊 
 L5=195;   %到end-effector
 
-PathPlanPoint_R=[[210 -360 0] [50 -90 0] -50]; 
+PathPlanPoint_R=[[210 -360 0] [50 0 0] -50]; 
 % PathPlanPoint_R=[PathPlanPoint_R(1:3)+TranFrameToRobot PathPlanPoint_R(4:7)];
 in_linkL=[L0;L1;L2;L3;L4;L5];
 in_base=[0;-L0;0];%header0 座標系偏移到shoulder0 座標系 差Y方向的L0
@@ -83,7 +83,7 @@ Rednt_alpha_R=PathPlanPoint_R(7)*pi/180;
 theta_R=IK_7DOF_FB7roll(DEF_RIGHT_HAND,in_linkL,in_base,in_end,in_PoseAngle,Rednt_alpha_R);
 IniJointAngle_R=theta_R;
 
-PathPlanPoint_L=[[350  100 0] [-50 0 0]  60];
+PathPlanPoint_L=[[350  100 0] [-60 0 0]  60];
 % PathPlanPoint_L=[PathPlanPoint_L(1:3)+TranFrameToRobot PathPlanPoint_L(4:7)];
 in_linkL=[L0;L1;L2;L3;L4;L5];
 in_base=[0;L0;0];%header0 座標系偏移到shoulder0 座標系 差Y方向的L0
@@ -135,10 +135,10 @@ ObjCornerRec_raw=timeseries;
 
 %右手畫直線
 FRAME_UPDATE=true;%架子繪圖
-R_starP=[[210 -360 0] [50 -90 0] -50]; 
-R_endP=[[350 -360 0]  [50 -90 0] -50]; 
+R_starP=[[210 -360 0] [50 0 0] -50]; 
+R_endP=[[450 -360 0]  [50 0 0] -50]; 
 arm_sel = DEF_RIGHT_HAND;
-CostTime=10;
+CostTime=12;
 Coordinate=DEF_ROBOT_COOR;
 LineMoveTo_PathGen_Script_SingleArm;
 %TotalTime=TotalTime+CostTime;
@@ -147,16 +147,16 @@ abst=0;
 
 %左手畫圓
 arc_cen=[350,200,0]; %旋轉圓心為針在架子上的起始點
-L_starP=[[350  100 0] [-50 0 0]  60];
-L_endP=[[350,100,0] [-50 0 0]  60];
+L_starP=[[350  100 0] [-60 0 0]  60];
+L_endP=[[350,100,0] [-60 0 0]  60];
 arm_sel = DEF_LEFT_HAND;
 rot_rad=2*pi; %旋轉角度
-CostTime=10;
+CostTime=12;
 Coordinate=DEF_ROBOT_COOR;
 RotateMoveTo_PathGen_Script_SingleArm;
 %TotalTime=TotalTime+CostTime;
 
-TotalTime=10;
+TotalTime=12;
 
 
 % %抬壓腳壓

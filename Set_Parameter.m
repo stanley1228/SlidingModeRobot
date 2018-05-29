@@ -140,7 +140,7 @@ ObjCornerRec_raw=timeseries;
 
 %右手往正X SewingLenth 左手往正X 縫線長度 SewingLenth
 FRAME_UPDATE=true;%架子繪圖
-R_starP=[[-90 -90 0] [70  0 0] -50]; 
+R_starP=[[-90 -90 0] [50  0 0] -50]; 
 R_endP=[[-90+SewingLength -90 0]  70 0 0 -50]; 
 L_starP=[[-90  90 0] [-90  0 0]  90];
 L_endP=[[-90+SewingLength  90 0] [-90 0 0]  90];
@@ -172,8 +172,8 @@ Seg=Seg+1;
 R_starP=[[-90+SewingLength -90 0]  [50 0 0] -50];
 R_endP=[[-90+SewingLength -90 0]  [50 0 0] -50];
 L_starP=[[-90+SewingLength  90+MovOutLen 0] [-90 0 0]  90];
-L_endP=[[-90+SewingLength+RelMovLen  90+MovOutLen 0] [-50 0 0]  90];
-CostTime=5;
+L_endP=[[-90+SewingLength+RelMovLen  90+MovOutLen 0] [-60 0 0]  90];
+CostTime=3;
 Coordinate=DEF_OBJFRAME_COOR;
 LineMoveTo_PathGen_Script;
 TotalTime=TotalTime+CostTime;
@@ -182,8 +182,8 @@ Seg=Seg+1;
 %右手不動 左手往負y移動MovOutLen
 R_starP=[[-90+SewingLength -90 0]  [50 0 0] -50];
 R_endP=[[-90+SewingLength -90 0]  [50 0 0] -50];
-L_starP=[[-90+SewingLength+RelMovLen  90+MovOutLen 0] [-50 0 0]  90];
-L_endP=[[-90+SewingLength+RelMovLen  90 0] [-50 0 0]  90];
+L_starP=[[-90+SewingLength+RelMovLen  90+MovOutLen 0] [-60 0 0]  90];
+L_endP=[[-90+SewingLength+RelMovLen  90 0] [-60 0 0]  90];
 CostTime=3;
 Coordinate=DEF_OBJFRAME_COOR;
 LineMoveTo_PathGen_Script;
@@ -201,7 +201,7 @@ FRAME_UPDATE=true;
 arc_cen=Needle_ini_Plate; %旋轉圓心為針在架子上的起始點
 R_starP=[[-90+SewingLength -90 0]  [50 0 0] -50];
 R_endP=[[90 -90 0] [50 0 0] -50];
-L_starP=[[-90+SewingLength+RelMovLen  90 0] [-50 0 0]  90];
+L_starP=[[-90+SewingLength+RelMovLen  90 0] [-60 0 0]  90];
 L_endP=[[-90 90 0] -90 0 0  90];
 rot_rad=0.5*pi; %旋轉時的起始旋轉角度
 CostTime=6;

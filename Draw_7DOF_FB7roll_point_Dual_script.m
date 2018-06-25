@@ -151,8 +151,8 @@ for cnt=1:10:max_cnt
     plot3(ObjCorner(:,1),ObjCorner(:,2),ObjCorner(:,3),':c','LineWidth',2);
 
     
-    xlabel('x');
-    ylabel('y');
+    xlabel('x (mm)');
+    ylabel('y (mm)');
 
     grid on;    %rotate3d on ;
     

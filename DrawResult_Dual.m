@@ -213,7 +213,7 @@ DEF_rednt_alpha=7;
 % %================================================
 %right hand
 figure;
-Joint_R = csvread('D://SewJoint_FeedBack_R_rec10ms_cmd40ms_sewing.csv');
+Joint_R = csvread('C://stanley//SewJoint_FeedBack_R_rec10ms_cmd40ms_sewing_load.csv');
 abst=Joint_R(:,1);  
  
 Cartesian_FB_line_and_circle_R=timeseries;
@@ -240,7 +240,8 @@ for i=DEF_X:1:DEF_Z
         ylabel('y (mm)');
     elseif i==DEF_Z
         %set(gca,'ytick',[0:200:1000])
-        %set(gca,'ytick',[25:5:35]);
+        ylim([0,60]);
+        set(gca,'ytick',[0:30:60]);
         title('t versus z of right arm') ; 
         ylabel('z (mm)');
     end
@@ -248,7 +249,7 @@ end
 
 %left hand
 figure;
-Joint_L = csvread('D://SewJoint_FeedBack_L_rec10ms_cmd40ms_sewing.csv');
+Joint_L = csvread('C://stanley//SewJoint_FeedBack_L_rec10ms_cmd40ms_sewing_load.csv');
 abst=Joint_L(:,1);  
 
 Cartesian_FB_line_and_circle_L=timeseries;
